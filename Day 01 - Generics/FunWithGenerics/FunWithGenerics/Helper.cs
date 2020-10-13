@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FunWithGenerics
+namespace FunWithGenerics.Extension
 {
-    public class Helper
+    public static class Helper
     {
         public static T GetLargest<T>(T first, T second)
             where T : IComparable<T>
@@ -22,17 +22,13 @@ namespace FunWithGenerics
             return new T();
         }
 
-        public static T SetColor<T>(T shape, ConsoleColor color)
-            where T : Shape
-
-        {
-            shape.Color = color;
-            return shape;
-        }
-
         public static void OnlyArray<T>(T[] source)
         {
+        }
 
+        public static Boolean NotEquals<T>(this IEquatable<T> source, T val)
+        {
+            return !source.Equals(val);
         }
     }
 }

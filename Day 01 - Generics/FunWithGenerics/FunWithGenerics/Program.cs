@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FunWithGenerics.Extension;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,14 +78,71 @@ namespace FunWithGenerics
 
             var personNotNull = Helper.ValueOrDefault<Person>(p1);
 
-            Circle c = new Circle();
+            Circle c = new Circle()
+                .SetColor(ConsoleColor.Green)
+                .SetRadius(10);
 
-            Helper.SetColor(c, ConsoleColor.Red).SetRadius(10);
+            ShapeHelper.SetColor(c, ConsoleColor.Red).SetRadius(10);
+            c.SetColor(ConsoleColor.Red);
 
+            //            var twoSeconds = TimeSpan.FromSeconds(2);
+            var twoSeconds = 2.Seconds();
+
+            if (12.NotEquals(15))
+            {
+                Console.WriteLine("12 Is not equal to 15");
+            }
 
             Console.ReadLine();
 
 
         }
+
+        static void FunWithCovariance()
+        {
+            IFoo<Base> ifbase = new Foo<Base>();
+            IFoo<Sub> ifsub = new Foo<Sub>();
+
+            Base b = new Sub();
+            IFoo<Sub> ifbase2 = new Foo<Base>();
+
+            DoSomethingWithBase(new Base());
+            DoSomethingWithBase(new Sub());
+
+            //DoSomethingWithSub(new Base());
+            DoSomethingWithSub(new Sub());
+
+            Base b2 = MethodThatReturnsBase();
+            //Sub s2 = MethodThatReturnsBase();
+
+
+            IEnumerable<Base> ib = new List<Sub>();
+
+            Base b3;
+            b3 = MethodWithOut();
+        }
+
+
+        public static void DoSomethingWithBase(Base b)
+        {
+
+        }
+
+        public static void DoSomethingWithSub(Sub b)
+        {
+
+        }
+
+        public static Base MethodThatReturnsBase()
+        {
+            return new Base();
+        }
+
+        public static Sub MethodWithOut()
+        {
+            return new Sub();
+        }
+
+
     }
 }

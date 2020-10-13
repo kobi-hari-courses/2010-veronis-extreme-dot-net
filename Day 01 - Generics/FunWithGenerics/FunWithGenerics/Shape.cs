@@ -8,9 +8,16 @@ namespace FunWithGenerics
 {
     public class Shape
     {
+        private int _id = 1;
+
         public double Area { get; }
 
         public ConsoleColor Color { get; internal set; }
+
+        public void SomeMethod()
+        {
+            _id++;
+        }
 
     }
 
