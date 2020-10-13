@@ -10,11 +10,18 @@ namespace FunWithGenerics
     {
         static void Main(string[] args)
         {
-            var t = new Wrapper<int>(42);
+            // var t = new Wrapper<int>(42);
+
+            var t = Wrapper.From(42);
 
             var t2 = new Wrapper<string>("hello");
 
             t2.DoSomething<double>();
+
+
+            //            var tcomplicated = new Wrapper<Dictionary<int, double>>(new Dictionary<int, double>());
+
+            var tcomplicated = Wrapper.From(new Dictionary<int, double>());
 
 
             var p1 = new Person()
@@ -65,6 +72,14 @@ namespace FunWithGenerics
 
             var isC1Bigger = c1.CompareTo(c2) > 0;
 
+            var clargest = Helper.GetLargest(c1, c2);
+            var plargest = Helper.GetLargest(p1, p2);
+
+            var personNotNull = Helper.ValueOrDefault<Person>(p1);
+
+            Circle c = new Circle();
+
+            Helper.SetColor(c, ConsoleColor.Red).SetRadius(10);
 
 
             Console.ReadLine();

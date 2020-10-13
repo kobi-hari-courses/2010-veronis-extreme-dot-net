@@ -22,4 +22,13 @@ namespace FunWithGenerics
 
         }
     }
+
+    public static class Wrapper
+    {
+        // Demonstrating Type Inference
+        public static Wrapper<T> From<T>(T value)
+        {
+            return new Wrapper<T>(value);
+        }
+    }
 }

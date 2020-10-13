@@ -10,7 +10,7 @@ namespace FunWithGenerics
     {
         public void Log<T>(T arg1)
         {
-            T var1 = default(T);
+            T var1 = default;
 
             Console.WriteLine($"arg1 = {arg1.ToString()}, var1 = {var1.ToString()}");
         }
