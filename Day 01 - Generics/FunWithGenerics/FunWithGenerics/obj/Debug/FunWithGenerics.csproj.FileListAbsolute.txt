@@ -1,7 +1,0 @@
-D:\Courses\202010 - Varonis Extreme.Net\Day 01 - Generics\FunWithGenerics\FunWithGenerics\bin\Debug\FunWithGenerics.exe.config
-D:\Courses\202010 - Varonis Extreme.Net\Day 01 - Generics\FunWithGenerics\FunWithGenerics\bin\Debug\FunWithGenerics.exe
-D:\Courses\202010 - Varonis Extreme.Net\Day 01 - Generics\FunWithGenerics\FunWithGenerics\bin\Debug\FunWithGenerics.pdb
-D:\Courses\202010 - Varonis Extreme.Net\Day 01 - Generics\FunWithGenerics\FunWithGenerics\obj\Debug\FunWithGenerics.csprojAssemblyReference.cache
-D:\Courses\202010 - Varonis Extreme.Net\Day 01 - Generics\FunWithGenerics\FunWithGenerics\obj\Debug\FunWithGenerics.csproj.CoreCompileInputs.cache
-D:\Courses\202010 - Varonis Extreme.Net\Day 01 - Generics\FunWithGenerics\FunWithGenerics\obj\Debug\FunWithGenerics.exe
-D:\Courses\202010 - Varonis Extreme.Net\Day 01 - Generics\FunWithGenerics\FunWithGenerics\obj\Debug\FunWithGenerics.pdb
