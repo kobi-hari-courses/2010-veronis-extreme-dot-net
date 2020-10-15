@@ -21,8 +21,7 @@ namespace FunWithEnumerables
                 Console.WriteLine(enumerator.Current);
             }
 
-            if (enumerator is IDisposable)
-                (enumerator as IDisposable).Dispose();
+            enumerator.Dispose();
 
 
             Console.ReadLine();

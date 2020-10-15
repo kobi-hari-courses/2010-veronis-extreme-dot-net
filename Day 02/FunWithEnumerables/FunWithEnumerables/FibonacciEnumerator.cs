@@ -7,14 +7,19 @@ using System.Threading.Tasks;
 
 namespace FunWithEnumerables
 {
-    public class FibonacciSequence: IEnumerable
+    public class FibonacciSequence: IEnumerable<int>
     {
-        public IEnumerator GetEnumerator()
+        public IEnumerator<int> GetEnumerator()
         {
             return new FibonacciEnumerator();
         }
 
-        private class FibonacciEnumerator : IEnumerator, IDisposable
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        private class FibonacciEnumerator : IEnumerator<int>, IDisposable
         {
             int i = 1;
             int j = 1;
@@ -22,11 +27,19 @@ namespace FunWithEnumerables
             int current = 1;
             int counter = 0;
 
-            public object Current
+            public int Current
             {
                 get
                 {
                     return current;
+                }
+            }
+
+            object IEnumerator.Current
+            {
+                get
+                {
+                    return Current;
                 }
             }
 
