@@ -11,7 +11,7 @@ namespace FunWithLinq
         static void Main(string[] args)
         {
 
-            BasicOperatorsExample();
+            ZipExample();
             Console.ReadLine();
         }
 
@@ -56,6 +56,40 @@ namespace FunWithLinq
 
         }
 
+        public static IEnumerable<int> Inifinte()
+        {
+            var i = 0;
+            while (true)
+            {
+                yield return i;
+                i += 1;
+            }
+        }
+
+        public static IEnumerable<int> GenerateSomeNumbers()
+        {
+            yield return 123;  // 6
+            yield return 154;  // 10
+            yield return 142; // 7
+            yield return 233; // 8
+            yield return 25;  // 7
+            yield return 35;  // 8
+            yield return 262; // 10
+            yield return 100; // 1
+            yield break;
+        }
+
+        public static IEnumerable<string> GenerateSomeStrings()
+        {
+            yield return "Hello";
+            yield return "World";
+            yield return "How";
+            yield return "Are";
+            yield return "You";
+
+        }
+
+
         #endregion
 
         #region LINQ Operators
@@ -97,37 +131,110 @@ namespace FunWithLinq
 
         #endregion
 
-        public static IEnumerable<int> Inifinte()
+        #region GroupBy Demo
+
+        public static void GroupByExample()
         {
-            var i = 0;
-            while (true)
+            var cars = Reader.CarsFromCsv("Data/cars.csv");
+
+            var manufacturers = cars
+                .Select(c => c.Make)
+                .Distinct();
+
+            var carsByManufacturers = cars
+                .GroupBy(c => c.Make);
+
+            var alternativeSyntax = from car in cars
+                                    group car by car.Make into make
+                                    select make;
+
+            foreach (IGrouping<string, Car> group in carsByManufacturers)
             {
-                yield return i;
-                i += 1;
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(group.Key);
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                foreach (var car in group)
+                {
+                    Console.WriteLine(car.Model);
+                }
             }
+
+            var carsAgain = carsByManufacturers.SelectMany(group => group);
         }
 
-        public static IEnumerable<int> GenerateSomeNumbers()
+        public static void MostEfficientOfEachManufacturer()
         {
-            yield return 123;  // 6
-            yield return 154;  // 10
-            yield return 142; // 7
-            yield return 233; // 8
-            yield return 25;  // 7
-            yield return 35;  // 8
-            yield return 262; // 10
-            yield return 100; // 1
-            yield break;
+            var cars = Reader.CarsFromCsv("Data/cars.csv");
+
+            var bestCars = cars
+                .GroupBy(c => c.Make)
+                .Select(group => group
+                                    .OrderByDescending(car => car.CombinedFE)
+                                    .First())
+                .Select(car => new
+                {
+                    Name = $"{car.Make} {car.Model}", 
+                    Efficiency = car.CombinedFE
+                });
+
+
+            foreach (var car in bestCars)
+            {
+                Console.WriteLine($"{car.Name} {car.Efficiency}");
+            }
+
+
         }
 
-        public static IEnumerable<string> GenerateSomeStrings()
+        #endregion
+
+        #region Aggregation operators
+
+        public static void AggregationExample()
         {
-            yield return "Hello";
-            yield return "World";
-            yield return "How";
-            yield return "Are";
-            yield return "You";
+            var cars = Reader
+                .CarsFromCsv("Data/cars.csv")
+                .Where(car => car.Make == "Porsche");
+
+            var lowestFE = cars.Min(car => car.CombinedFE);
+
+            var sumOfFe = cars.Sum(car => car.CombinedFE);
+
+            var carWithLowestCombinedFe = cars.Aggregate((c1, c2) => (c1.CombinedFE > c2.CombinedFE) ? c2 : c1);
+
+            var sumOfCarFe = cars.Aggregate(0, (sum, car) => sum + car.CombinedFE);
+
+            var avgCombinedFw = cars.Aggregate(
+                new { Sum = 0, Count = 0 },
+                (acc, car) => new { Sum = acc.Sum + car.CombinedFE, Count = acc.Count + 1 },
+                acc => (double)acc.Sum / acc.Count);
+
+
+
 
         }
+
+        #endregion
+
+        #region Zip Examples
+
+        public static void ZipExample()
+        {
+            var l1 = new List<int> { 1, 5, 10, 20, 15, 6, 16 };
+
+            var pairs = l1
+                .Zip(l1.Skip(1), (i1, i2) => (i1, i2))
+                .Where((_, index) => index % 2 == 0);
+
+            foreach (var pair in pairs)
+            {
+                Console.WriteLine(pair);
+            }
+
+        }
+
+        #endregion
+
     }
 }
