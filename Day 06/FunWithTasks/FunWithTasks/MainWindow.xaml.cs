@@ -108,7 +108,7 @@ namespace FunWithTasks
                 var range = await rangeResolver.GetRange(_cts.Token);
                 txtStatus.Text = $"Running on range: {range.start}..{range.finish}";
 
-                task = PrimesCalculator.GetAllPrimesAsync(range.start, range.finish, _cts.Token, progress);
+                task = PrimesCalculator.GetAllPrimesAsync(range.start, range.finish, _cts.Token, progress, chkParallel.IsChecked.Value);
 
                 Debug.WriteLine("B");   // now
                 var results = await task;

@@ -21,6 +21,7 @@
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
             <Button x:Name="btnGo" Padding="8" Margin="8" Click="btnGo_Click">Go</Button>
             <Button x:Name="btnCancel" Padding="8" Margin="8" IsEnabled="False" Click="btnCancel_Click">Cancel</Button>
+            <CheckBox x:Name="chkParallel" Content="Use Parallel LINQ" IsChecked="True" VerticalAlignment="Center"/>
         </StackPanel>
         <TextBlock x:Name="txtStatus" FontSize="40" DockPanel.Dock="Top" Foreground="Green"/>
         <ProgressBar  

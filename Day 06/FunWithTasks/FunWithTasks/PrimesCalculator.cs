@@ -46,24 +46,30 @@ namespace FunWithTasks
             }
         }
 
-        private static IEnumerable<int> _getAllPrimesLinq(int start, int finish, CancellationToken ct)
+        private static IEnumerable<int> _getAllPrimesLinq(int start, int finish, CancellationToken ct, IProgress<int> progress)
         {
             return Enumerable.Range(start, finish - start + 1)
                 .AsParallel()
                 .AsOrdered()
                 .WithCancellation(ct)
+                .WithProgressReporting(finish - start + 1, progress)
                 .Where(val => _isPrime(val));
         }
 
-        public static List<int> GetAllPrimes(int start, int finish, CancellationToken ct, IProgress<int> progress)
+        public static List<int> GetAllPrimes(int start, int finish, CancellationToken ct, IProgress<int> progress, bool parallel = false)
         {
-            return _getAllPrimes(start, finish, ct, progress).ToList();
+            if (parallel)
+                return _getAllPrimesLinq(start, finish, ct, progress).ToList();
+            else
+                return _getAllPrimes(start, finish, ct, progress).ToList();
         }
 
         public static Task<List<int>> GetAllPrimesAsync(int start, int finish, 
-            CancellationToken ct = default, IProgress<int> progress = null)
+            CancellationToken ct = default, IProgress<int> progress = null,
+            bool parallel = false
+            )
         {
-            return Task.Factory.StartNew(() => GetAllPrimes(start, finish, ct, progress));
+            return Task.Factory.StartNew(() => GetAllPrimes(start, finish, ct, progress, parallel));
         }
     }
 }
