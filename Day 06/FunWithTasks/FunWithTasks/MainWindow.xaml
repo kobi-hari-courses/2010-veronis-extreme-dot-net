@@ -1,0 +1,38 @@
+﻿<Window x:Class="FunWithTasks.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FunWithTasks"
+        mc:Ignorable="d"
+        Title="Primes Calculator" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel 
+            x:Name="panelRange"
+            Background="Pink" DockPanel.Dock="Right" Width="100"
+            Visibility="Collapsed"
+            >
+            <TextBlock Text="From:"/>
+            <TextBox x:Name="txtFrom" Text="0"/>
+            <TextBlock Text="To:"/>
+            <TextBox x:Name="txtTo" Text="100000"/>
+            <Button x:Name="btnRangeOk" Margin="8">Ok</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Button x:Name="btnGo" Padding="8" Margin="8" Click="btnGo_Click">Go</Button>
+            <Button x:Name="btnCancel" Padding="8" Margin="8" IsEnabled="False" Click="btnCancel_Click">Cancel</Button>
+        </StackPanel>
+        <TextBlock x:Name="txtStatus" FontSize="40" DockPanel.Dock="Top" Foreground="Green"/>
+        <ProgressBar  
+            x:Name="progressBar"
+            DockPanel.Dock="Top" 
+            Height="24"
+            Minimum="0"
+            Maximum="100"
+            />
+        <ListBox
+            x:Name="lstResults"
+            ></ListBox>
+        
+    </DockPanel>
+</Window>
