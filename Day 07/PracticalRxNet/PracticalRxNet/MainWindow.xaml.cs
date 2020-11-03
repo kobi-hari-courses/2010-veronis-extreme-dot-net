@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PracticalRxNet.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,17 @@ namespace PracticalRxNet
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (readerWrapper.Content == null)
+            {
+                readerWrapper.Content = new CounterReader();
+            } else
+            {
+                readerWrapper.Content = null;
+            }
         }
     }
 }
