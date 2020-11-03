@@ -22,3 +22,4 @@ and also - through `Whatsapp`
 * [Day 03 - LINQ](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-03-LINQ-Deep-Dive)
 * [Day 04 - Reflection](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-04-Reflection)
 * [Day 05 - Task Parallel Library](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-05-Introduction-to-TPL)
+* [Day 06 - TPL Continued](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-06---TPL-Continued)
