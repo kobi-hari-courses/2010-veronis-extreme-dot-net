@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroductionToRx", "IntroductionToRx\IntroductionToRx.csproj", "{29B1ECD2-1CBC-4144-8A71-C170FB3DABEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29B1ECD2-1CBC-4144-8A71-C170FB3DABEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29B1ECD2-1CBC-4144-8A71-C170FB3DABEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29B1ECD2-1CBC-4144-8A71-C170FB3DABEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29B1ECD2-1CBC-4144-8A71-C170FB3DABEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E934CD0-43CB-41CA-B4B6-5FCE7A71F9F3}
+	EndGlobalSection
+EndGlobal
