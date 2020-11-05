@@ -25,16 +25,5 @@ namespace PracticalRxNet
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (readerWrapper.Content == null)
-            {
-                readerWrapper.Content = new CounterReader();
-            } else
-            {
-                readerWrapper.Content = null;
-            }
-        }
     }
 }

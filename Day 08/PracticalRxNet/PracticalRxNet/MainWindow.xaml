@@ -7,16 +7,4 @@
         xmlns:views="clr-namespace:PracticalRxNet.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Button Click="Button_Click">Toggle Reader</Button>
-        </StackPanel>
-        <views:CounterWriter/>
-        <views:CounterWriter/>
-
-        <ContentControl x:Name="readerWrapper">
-            <views:CounterReader/>
-        </ContentControl>
-        
-    </StackPanel>
 </Window>
