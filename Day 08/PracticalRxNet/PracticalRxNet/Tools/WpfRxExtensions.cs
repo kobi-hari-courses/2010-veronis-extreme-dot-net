@@ -29,7 +29,16 @@ namespace PracticalRxNet.Tools
                 )
                 .Select(ep => Unit.Default)
                 .Take(1);
+        }
 
+        public static IObservable<string> ObserveTestCahnged(this TextBox source)
+        {
+            return Observable.FromEventPattern<TextChangedEventHandler, TextChangedEventArgs>(
+                h => source.TextChanged += h,
+                h => source.TextChanged -= h
+                )
+                .Select(ep => (ep.EventArgs.Source as TextBox).Text)
+                .TakeUntil(source.ObserveUnloaded());
         }
     }
 }

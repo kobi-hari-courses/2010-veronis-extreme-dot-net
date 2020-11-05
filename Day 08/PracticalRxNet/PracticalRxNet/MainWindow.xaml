@@ -7,4 +7,5 @@
         xmlns:views="clr-namespace:PracticalRxNet.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <views:ColorsExample/>
 </Window>
