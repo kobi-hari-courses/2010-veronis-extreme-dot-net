@@ -25,4 +25,5 @@ and also - through `Whatsapp`
 * [Day 06 - TPL Continued](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-06---TPL-Continued)
 * [Day 07 - Rx.NET part 1](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-07---Rx.Net-part-1)
 * [Day 08 - Rx.NET part 2](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-08-Rx.Net-part-2)
-* [Dau 09 - Rx.NET part 3](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-09-Rx.Net-part-3)
+* [Day 09 - Rx.NET part 3](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-09-Rx.Net-part-3)
+* [Day 10 - GC and IDisposable](https://github.com/kobi2294/Course-102020-Varonis-Extreme.Net/wiki/Day-10-GC-and-IDisposables)
